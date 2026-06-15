@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Independent apps for music learning, creativity, and everyday organization.">
+  <title>Ben Huang — Apps & Experiments</title>
+  <link rel="icon" href="assets/music-note-icon.png">
+  <style>
+    :root {
+      --ink: #191816;
+      --muted: #706b63;
+      --line: rgba(25, 24, 22, .13);
+      --paper: #f4f0e8;
+      --card: rgba(255, 255, 255, .72);
+      --accent: #6c4d3e;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(202, 162, 120, .23), transparent 25rem),
+        radial-gradient(circle at 10% 42%, rgba(136, 166, 150, .17), transparent 28rem),
+        var(--paper);
+      font-family: var(--sans);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: auto; }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(244, 240, 232, .84);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font: 700 20px/1 var(--serif); letter-spacing: -.02em; }
+    .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--ink); }
+    .hero {
+      min-height: 78vh; display: grid; grid-template-columns: 1.08fr .92fr;
+      align-items: center; gap: 50px; padding: 80px 0 90px;
+    }
+    .eyebrow {
+      margin-bottom: 20px; color: var(--accent); font-size: 12px;
+      font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+    }
+    h1 { margin: 0; max-width: 760px; font: 700 clamp(54px, 8vw, 104px)/.96 var(--serif); letter-spacing: -.065em; }
+    .hero p { max-width: 610px; margin: 28px 0 34px; color: var(--muted); font-size: clamp(17px, 2vw, 21px); line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
+      padding: 0 20px; border: 1px solid var(--ink); border-radius: 999px;
+      font-size: 14px; font-weight: 750; transition: .2s ease;
+    }
+    .button.primary { color: #fff; background: var(--ink); }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 9px 24px rgba(25,24,22,.14); }
+    .hero-art { position: relative; min-height: 520px; }
+    .hero-orbit {
+      position: absolute; inset: 8% 0 0 8%; border: 1px solid rgba(108,77,62,.28);
+      border-radius: 50%; transform: rotate(-12deg);
+    }
+    .phone {
+      position: absolute; width: 230px; overflow: hidden; border: 7px solid #1f1d1a;
+      border-radius: 38px; background: #fff; box-shadow: 0 35px 70px rgba(45,35,28,.22);
+    }
+    .phone img { width: 100%; }
+    .phone.one { right: 12%; top: 0; transform: rotate(5deg); }
+    .phone.two { left: 5%; bottom: 0; transform: rotate(-7deg); }
+    .floating-note { position: absolute; right: 0; bottom: 8%; font: 100px/1 var(--serif); color: rgba(108,77,62,.24); }
+    section { padding: 90px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 36px; }
+    h2 { margin: 0; font: 700 clamp(40px, 6vw, 68px)/1 var(--serif); letter-spacing: -.045em; }
+    .section-head p { max-width: 420px; margin: 0; color: var(--muted); line-height: 1.7; }
+    .projects { display: grid; gap: 24px; }
+    .project {
+      position: relative; display: grid; grid-template-columns: .9fr 1.1fr; min-height: 580px;
+      overflow: hidden; border: 1px solid var(--line); border-radius: 32px;
+      background: var(--card); box-shadow: 0 20px 55px rgba(48,39,31,.09);
+    }
+    .project:nth-child(even) { grid-template-columns: 1.1fr .9fr; }
+    .project:nth-child(even) .project-copy { order: 2; }
+    .project-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(32px, 6vw, 74px); }
+    .app-icon { width: 76px; height: 76px; object-fit: cover; margin-bottom: 28px; border-radius: 19px; box-shadow: 0 12px 28px rgba(0,0,0,.15); }
+    .icon-fallback {
+      display: grid; place-items: center; width: 76px; height: 76px; margin-bottom: 28px;
+      border-radius: 19px; color: #fff; background: linear-gradient(135deg, #222, #80634f);
+      font: 700 34px/1 var(--serif); box-shadow: 0 12px 28px rgba(0,0,0,.15);
+    }
+    .project h3 { margin: 0 0 14px; font: 700 clamp(34px, 4vw, 52px)/1 var(--serif); letter-spacing: -.035em; }
+    .project p { margin: 0 0 26px; color: var(--muted); line-height: 1.75; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+    .tag { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .project-visual { position: relative; min-height: 520px; overflow: hidden; background: #ded8cb; }
+    .project-visual.green { background: linear-gradient(145deg, #cdded4, #769985); }
+    .project-visual.gold { background: linear-gradient(145deg, #fff8d6, #c69529); }
+    .project-visual.mono { background: linear-gradient(145deg, #dedede, #5d5d5d); }
+    .project-visual img {
+      position: absolute; width: min(68%, 320px); left: 50%; top: 55%;
+      transform: translate(-50%, -50%) rotate(3deg); border: 6px solid #1f1d1a;
+      border-radius: 38px; box-shadow: 0 32px 70px rgba(0,0,0,.28);
+    }
+    .project:nth-child(even) .project-visual img { transform: translate(-50%, -50%) rotate(-3deg); }
+    .itemmap-visual { display: grid; place-items: center; height: 100%; padding: 50px; }
+    .itemmap-panel {
+      width: min(440px, 100%); padding: 26px; border: 1px solid rgba(255,255,255,.45);
+      border-radius: 24px; color: white; background: rgba(25,24,22,.75); box-shadow: 0 25px 60px rgba(0,0,0,.25);
+    }
+    .item-row { display: flex; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
+    .item-row:last-child { border: 0; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #e9bd6d; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .about-grid p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.9; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 45px; }
+    .principle { padding: 24px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.45); }
+    .principle strong { display: block; margin-bottom: 8px; font-family: var(--serif); font-size: 20px; }
+    .principle span { color: var(--muted); font-size: 13px; line-height: 1.6; }
+    footer { padding: 35px 0 45px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; padding-top: 55px; }
+      .hero-art { min-height: 460px; }
+      .project, .project:nth-child(even) { grid-template-columns: 1fr; }
+      .project:nth-child(even) .project-copy { order: initial; }
+      .project-visual { min-height: 560px; }
+      .about-grid { grid-template-columns: 1fr; gap: 25px; }
+      .principles { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .nav-links a:not(:last-child) { display: none; }
+      .hero { min-height: auto; padding-bottom: 55px; }
+      h1 { font-size: 54px; }
+      .hero-art { min-height: 370px; }
+      .phone { width: 175px; border-width: 5px; border-radius: 28px; }
+      section { padding: 60px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 16px; }
+      .project { min-height: 0; border-radius: 24px; }
+      .project-copy { padding: 32px 24px; }
+      .project-visual { min-height: 440px; }
+      .footer-inner { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#">Ben Huang / Apps</a>
+      <div class="nav-links">
+        <a href="#work">作品 / Work</a>
+        <a href="#about">关于 / About</a>
+        <a href="https://github.com/p13761495164-svg">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="wrap hero">
+      <div>
+        <div class="eyebrow">Independent App Studio</div>
+        <h1>Small apps.<br>Clear ideas.</h1>
+        <p>我制作简单、专注、无需说明书的数字工具。围绕音乐学习、创作与日常整理，让每一次点击都有意义。</p>
+        <div class="actions">
+          <a class="button primary" href="#work">查看作品</a>
+          <a class="button" href="mailto:p13761495164@gmail.com">联系我</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-orbit"></div>
+        <div class="phone one"><img src="assets/music-note-screen.png" alt=""></div>
+        <div class="phone two"><img src="assets/color-screen.png" alt=""></div>
+        <div class="floating-note">♪</div>
+      </div>
+    </header>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <p>从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-copy">
+              <img class="app-icon" src="assets/music-note-icon.png" alt="Music Note Quiz icon">
+              <h3>Music Note Quiz</h3>
+              <p>通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。</p>
+              <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Music Education</span></div>
+              <div class="actions"><a class="button primary" href="https://p13761495164-svg.github.io/music-note-quiz-support/">支持与隐私</a></div>
+            </div>
+            <div class="project-visual green"><img src="assets/music-note-screen.png" alt="Music Note Quiz screenshot"></div>
+          </article>
+
+          <article class="project">
+            <div class="project-copy">
+              <div class="icon-fallback">T</div>
+              <h3>Transpose Piano</h3>
+              <p>为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。</p>
+              <div class="tags"><span class="tag">iOS</span><span class="tag">Web Audio</span><span class="tag">Instrument</span></div>
+              <div class="actions"><a class="button primary" href="https://p13761495164-svg.github.io/transpose-piano-support/">支持与隐私</a></div>
+            </div>
+            <div class="project-visual mono"><img src="assets/transpose-screen.png" alt="Transpose Piano screenshot"></div>
+          </article>
+
+          <article class="project">
+            <div class="project-copy">
+              <img class="app-icon" src="assets/color-icon.png" alt="Color Piano icon">
+              <h3>Color Piano</h3>
+              <p>用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。</p>
+              <div class="tags"><span class="tag">iOS</span><span class="tag">Creative Tool</span><span class="tag">Music</span></div>
+              <div class="actions"><a class="button primary" href="https://p13761495164-svg.github.io/color-piano-support/">支持与隐私</a></div>
+            </div>
+            <div class="project-visual gold"><img src="assets/color-screen.png" alt="Color Piano screenshot"></div>
+          </article>
+
+          <article class="project">
+            <div class="project-copy">
+              <img class="app-icon" src="assets/itemmap-icon.png" alt="ItemMap icon">
+              <h3>ItemMap</h3>
+              <p>一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。</p>
+              <div class="tags"><span class="tag">Web App</span><span class="tag">Supabase</span><span class="tag">In Development</span></div>
+              <div class="actions"><a class="button" href="mailto:p13761495164@gmail.com">了解更多</a></div>
+            </div>
+            <div class="project-visual green">
+              <div class="itemmap-visual"><div class="itemmap-panel">
+                <div class="item-row"><span class="dot"></span><strong>Ideas</strong></div>
+                <div class="item-row"><span class="dot"></span><strong>Projects</strong></div>
+                <div class="item-row"><span class="dot"></span><strong>References</strong></div>
+                <div class="item-row"><span class="dot"></span><strong>Connections</strong></div>
+              </div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <h2>Designed to stay out of the way.</h2>
+          <p>我相信好工具应该很快进入状态：打开、理解、使用。我的作品尽量减少账户、广告与不必要的步骤，把注意力留给真正想做的事情。<br><br>I build focused apps that respect attention, work reliably, and feel natural from the first tap.</p>
+        </div>
+        <div class="principles">
+          <div class="principle"><strong>Focused</strong><span>围绕一个清楚的核心任务，不堆叠无关功能。</span></div>
+          <div class="principle"><strong>Private</strong><span>优先本地运行与离线使用，尽量少收集数据。</span></div>
+          <div class="principle"><strong>Human</strong><span>界面安静、易懂，让技术服务于使用者。</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 Ben Huang. Built with care.</span>
+      <span><a href="mailto:p13761495164@gmail.com">Email</a> · <a href="https://github.com/p13761495164-svg">GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>
