@@ -41,8 +41,13 @@
       height: 68px; display: flex; align-items: center; justify-content: space-between;
     }
     .brand { font: 700 20px/1 var(--serif); letter-spacing: -.02em; }
-    .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; }
     .nav-links a:hover { color: var(--ink); }
+    .language-select {
+      min-height: 34px; padding: 0 30px 0 12px; border: 1px solid var(--line);
+      border-radius: 999px; color: var(--ink); background: rgba(255,255,255,.52);
+      font: 700 13px/1 var(--sans);
+    }
     .hero {
       min-height: 78vh; display: grid; grid-template-columns: 1.08fr .92fr;
       align-items: center; gap: 50px; padding: 80px 0 90px;
@@ -135,6 +140,7 @@
     @media (max-width: 560px) {
       .wrap { width: min(100% - 24px, 1180px); }
       .nav-links a:not(:last-child) { display: none; }
+      .nav-links { gap: 12px; }
       .hero { min-height: auto; padding-bottom: 55px; }
       h1 { font-size: 54px; }
       .hero-art { min-height: 370px; }
@@ -154,9 +160,16 @@
     <div class="wrap nav-inner">
       <a class="brand" href="#">App Studio Ben</a>
       <div class="nav-links">
-        <a href="#work">作品 / Work</a>
-        <a href="#about">关于 / About</a>
+        <a href="#work" data-i18n="navWork">作品 / Work</a>
+        <a href="#about" data-i18n="navAbout">关于 / About</a>
         <a href="https://github.com/p13761495164-svg">GitHub ↗</a>
+        <select id="language-select" class="language-select" aria-label="Language">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="es">Español</option>
+        </select>
       </div>
     </div>
   </nav>
@@ -164,12 +177,12 @@
   <main>
     <header class="wrap hero">
       <div>
-        <div class="eyebrow">Independent App Studio</div>
-        <h1>Small apps.<br>Clear ideas.</h1>
-        <p>我制作简单、专注、无需说明书的数字工具。围绕音乐学习、创作与日常整理，让每一次点击都有意义。</p>
+        <div class="eyebrow" data-i18n="eyebrow">Independent App Studio</div>
+        <h1 data-i18n-html="heroTitle">Small apps.<br>Clear ideas.</h1>
+        <p data-i18n="heroText">我制作简单、专注、无需说明书的数字工具。围绕音乐学习、创作与日常整理，让每一次点击都有意义。</p>
         <div class="actions">
-          <a class="button primary" href="#work">查看作品</a>
-          <a class="button" href="mailto:p13761495164@gmail.com">联系我</a>
+          <a class="button primary" href="#work" data-i18n="viewWork">查看作品</a>
+          <a class="button" href="mailto:p13761495164@gmail.com" data-i18n="contact">联系我</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -183,20 +196,20 @@
     <section id="work">
       <div class="wrap">
         <div class="section-head">
-          <h2>Selected work</h2>
-          <p>从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。</p>
+          <h2 data-i18n="selectedWork">Selected work</h2>
+          <p data-i18n="workIntro">从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。</p>
         </div>
         <div class="projects">
           <article class="project">
             <div class="project-copy">
               <img class="app-icon" src="assets/music-note-icon.png" alt="Music Note Quiz icon">
               <h3>Music Note Quiz</h3>
-              <p>通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。</p>
-              <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Music Education</span></div>
+              <p data-i18n="musicNoteDesc">通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。</p>
+              <div class="tags"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag" data-i18n="tagMusicEducation">Music Education</span></div>
               <div class="actions store-links">
                 <a class="button primary" href="#ios-music-note-quiz">iOS App</a>
                 <a class="button" href="#android-music-note-quiz">Android App</a>
-                <a class="button ghost" href="https://p13761495164-svg.github.io/music-note-quiz-support/">Support</a>
+                <a class="button ghost" href="https://p13761495164-svg.github.io/music-note-quiz-support/" data-i18n="support">Support</a>
               </div>
             </div>
             <div class="project-visual green"><img src="assets/music-note-screen.png" alt="Music Note Quiz screenshot"></div>
@@ -206,12 +219,12 @@
             <div class="project-copy">
               <img class="app-icon" src="assets/transpose-icon.png" alt="Transpose Piano icon">
               <h3>Transpose Piano</h3>
-              <p>为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。</p>
-              <div class="tags"><span class="tag">iOS</span><span class="tag">Web Audio</span><span class="tag">Instrument</span></div>
+              <p data-i18n="transposeDesc">为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。</p>
+              <div class="tags"><span class="tag">iOS</span><span class="tag">Web Audio</span><span class="tag" data-i18n="tagInstrument">Instrument</span></div>
               <div class="actions store-links">
                 <a class="button primary" href="#ios-transpose-piano">iOS App</a>
                 <a class="button" href="#android-transpose-piano">Android App</a>
-                <a class="button ghost" href="https://p13761495164-svg.github.io/transpose-piano-support/">Support</a>
+                <a class="button ghost" href="https://p13761495164-svg.github.io/transpose-piano-support/" data-i18n="support">Support</a>
               </div>
             </div>
             <div class="project-visual mono"><img src="assets/transpose-screen.png" alt="Transpose Piano screenshot"></div>
@@ -221,12 +234,12 @@
             <div class="project-copy">
               <img class="app-icon" src="assets/color-icon.png" alt="Color Piano icon">
               <h3>Color Piano</h3>
-              <p>用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。</p>
-              <div class="tags"><span class="tag">iOS</span><span class="tag">Creative Tool</span><span class="tag">Music</span></div>
+              <p data-i18n="colorDesc">用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。</p>
+              <div class="tags"><span class="tag">iOS</span><span class="tag" data-i18n="tagCreativeTool">Creative Tool</span><span class="tag" data-i18n="tagMusic">Music</span></div>
               <div class="actions store-links">
                 <a class="button primary" href="#ios-color-piano">iOS App</a>
                 <a class="button" href="#android-color-piano">Android App</a>
-                <a class="button ghost" href="https://p13761495164-svg.github.io/color-piano-support/">Support</a>
+                <a class="button ghost" href="https://p13761495164-svg.github.io/color-piano-support/" data-i18n="support">Support</a>
               </div>
             </div>
             <div class="project-visual gold"><img src="assets/color-screen.png" alt="Color Piano screenshot"></div>
@@ -236,20 +249,20 @@
             <div class="project-copy">
               <img class="app-icon" src="assets/itemmap-icon.png" alt="ItemMap icon">
               <h3>ItemMap</h3>
-              <p>一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。</p>
-              <div class="tags"><span class="tag">Web App</span><span class="tag">Supabase</span><span class="tag">In Development</span></div>
+              <p data-i18n="itemmapDesc">一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。</p>
+              <div class="tags"><span class="tag">Web App</span><span class="tag">Supabase</span><span class="tag" data-i18n="tagInDevelopment">In Development</span></div>
               <div class="actions store-links">
                 <a class="button primary" href="#ios-itemmap">iOS App</a>
                 <a class="button" href="#android-itemmap">Android App</a>
-                <a class="button ghost" href="mailto:p13761495164@gmail.com">Contact</a>
+                <a class="button ghost" href="mailto:p13761495164@gmail.com" data-i18n="contact">Contact</a>
               </div>
             </div>
             <div class="project-visual green">
               <div class="itemmap-visual"><div class="itemmap-panel">
-                <div class="item-row"><span class="dot"></span><strong>Ideas</strong></div>
-                <div class="item-row"><span class="dot"></span><strong>Projects</strong></div>
-                <div class="item-row"><span class="dot"></span><strong>References</strong></div>
-                <div class="item-row"><span class="dot"></span><strong>Connections</strong></div>
+                <div class="item-row"><span class="dot"></span><strong data-i18n="ideas">Ideas</strong></div>
+                <div class="item-row"><span class="dot"></span><strong data-i18n="projects">Projects</strong></div>
+                <div class="item-row"><span class="dot"></span><strong data-i18n="references">References</strong></div>
+                <div class="item-row"><span class="dot"></span><strong data-i18n="connections">Connections</strong></div>
               </div></div>
             </div>
           </article>
@@ -260,13 +273,13 @@
     <section id="about">
       <div class="wrap">
         <div class="about-grid">
-          <h2>Designed to stay out of the way.</h2>
-          <p>我相信好工具应该很快进入状态：打开、理解、使用。我的作品尽量减少账户、广告与不必要的步骤，把注意力留给真正想做的事情。<br><br>I build focused apps that respect attention, work reliably, and feel natural from the first tap.</p>
+          <h2 data-i18n="aboutTitle">Designed to stay out of the way.</h2>
+          <p data-i18n-html="aboutText">我相信好工具应该很快进入状态：打开、理解、使用。我的作品尽量减少账户、广告与不必要的步骤，把注意力留给真正想做的事情。<br><br>I build focused apps that respect attention, work reliably, and feel natural from the first tap.</p>
         </div>
         <div class="principles">
-          <div class="principle"><strong>Focused</strong><span>围绕一个清楚的核心任务，不堆叠无关功能。</span></div>
-          <div class="principle"><strong>Private</strong><span>优先本地运行与离线使用，尽量少收集数据。</span></div>
-          <div class="principle"><strong>Human</strong><span>界面安静、易懂，让技术服务于使用者。</span></div>
+          <div class="principle"><strong data-i18n="focused">Focused</strong><span data-i18n="focusedText">围绕一个清楚的核心任务，不堆叠无关功能。</span></div>
+          <div class="principle"><strong data-i18n="private">Private</strong><span data-i18n="privateText">优先本地运行与离线使用，尽量少收集数据。</span></div>
+          <div class="principle"><strong data-i18n="human">Human</strong><span data-i18n="humanText">界面安静、易懂，让技术服务于使用者。</span></div>
         </div>
       </div>
     </section>
@@ -274,9 +287,240 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>© 2026 Ben Huang. Built with care.</span>
+      <span data-i18n="footer">© 2026 Ben Huang. Built with care.</span>
       <span><a href="mailto:p13761495164@gmail.com">Email</a> · <a href="https://github.com/p13761495164-svg">GitHub</a></span>
     </div>
   </footer>
+  <script>
+    (() => {
+      const STORAGE_KEY = "app-studio-ben-language";
+      const supported = ["zh", "en", "ja", "ko", "es"];
+      const langAttrs = { zh: "zh-CN", en: "en", ja: "ja", ko: "ko", es: "es" };
+      const translations = {
+        zh: {
+          title: "App Studio Ben — 应用作品集",
+          navWork: "作品 / Work",
+          navAbout: "关于 / About",
+          eyebrow: "独立应用工作室",
+          heroTitle: "小应用。<br>清晰想法。",
+          heroText: "我制作简单、专注、无需说明书的数字工具。围绕音乐学习、创作与日常整理，让每一次点击都有意义。",
+          viewWork: "查看作品",
+          contact: "联系我",
+          selectedWork: "精选作品",
+          workIntro: "从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。",
+          musicNoteDesc: "通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。",
+          transposeDesc: "为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。",
+          colorDesc: "用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。",
+          itemmapDesc: "一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。",
+          support: "支持",
+          tagMusicEducation: "音乐教育",
+          tagInstrument: "乐器",
+          tagCreativeTool: "创作工具",
+          tagMusic: "音乐",
+          tagInDevelopment: "开发中",
+          ideas: "想法",
+          projects: "项目",
+          references: "资料",
+          connections: "连接",
+          aboutTitle: "Designed to stay out of the way.",
+          aboutText: "我相信好工具应该很快进入状态：打开、理解、使用。我的作品尽量减少账户、广告与不必要的步骤，把注意力留给真正想做的事情。<br><br>I build focused apps that respect attention, work reliably, and feel natural from the first tap.",
+          focused: "专注",
+          focusedText: "围绕一个清楚的核心任务，不堆叠无关功能。",
+          private: "私密",
+          privateText: "优先本地运行与离线使用，尽量少收集数据。",
+          human: "友好",
+          humanText: "界面安静、易懂，让技术服务于使用者。",
+          footer: "© 2026 Ben Huang. 用心制作。"
+        },
+        en: {
+          title: "App Studio Ben — Apps & Experiments",
+          navWork: "Work",
+          navAbout: "About",
+          eyebrow: "Independent App Studio",
+          heroTitle: "Small apps.<br>Clear ideas.",
+          heroText: "I build simple, focused digital tools that need no manual. Each app is shaped around music learning, creativity, and everyday organization.",
+          viewWork: "View work",
+          contact: "Contact",
+          selectedWork: "Selected work",
+          workIntro: "From note-reading practice to transposable piano tools, each project starts from one specific problem and stays intentionally lightweight.",
+          musicNoteDesc: "Practice reading staff notes with an interactive piano keyboard. Supports treble and bass clefs, multiple key signatures, offline use, and saved progress.",
+          transposeDesc: "A transposable piano for singers and musicians. Choose a key and play familiar shapes in the target key, with a horizontally scrollable range.",
+          colorDesc: "A visual piano that uses color and numbers to make keyboard relationships easier to understand, practice, and remember.",
+          itemmapDesc: "A lightweight tool for organizing categories, items, and relationships, turning scattered information into a searchable personal knowledge map.",
+          support: "Support",
+          tagMusicEducation: "Music Education",
+          tagInstrument: "Instrument",
+          tagCreativeTool: "Creative Tool",
+          tagMusic: "Music",
+          tagInDevelopment: "In Development",
+          ideas: "Ideas",
+          projects: "Projects",
+          references: "References",
+          connections: "Connections",
+          aboutTitle: "Designed to stay out of the way.",
+          aboutText: "Good tools should be quick to enter: open, understand, use. My apps reduce accounts, ads, and unnecessary steps so attention stays with the thing you came to do.<br><br>I build focused apps that respect attention, work reliably, and feel natural from the first tap.",
+          focused: "Focused",
+          focusedText: "Built around one clear core task, without piling on unrelated features.",
+          private: "Private",
+          privateText: "Prefers local and offline use, with as little data collection as possible.",
+          human: "Human",
+          humanText: "Quiet, understandable interfaces that let technology serve the user.",
+          footer: "© 2026 Ben Huang. Built with care."
+        },
+        ja: {
+          title: "App Studio Ben — アプリ作品集",
+          navWork: "作品",
+          navAbout: "概要",
+          eyebrow: "インディペンデント App Studio",
+          heroTitle: "小さなアプリ。<br>明快なアイデア。",
+          heroText: "シンプルで集中しやすく、説明書なしで使えるデジタルツールを作っています。音楽学習、創作、日々の整理を気持ちよく進めるためのアプリです。",
+          viewWork: "作品を見る",
+          contact: "連絡する",
+          selectedWork: "主な作品",
+          workIntro: "読譜練習から移調ピアノまで、それぞれのアプリは具体的な課題から出発し、軽やかに使えることを大切にしています。",
+          musicNoteDesc: "五線譜とピアノ鍵盤で読譜を練習できます。高音記号・低音記号、複数の調号、オフライン利用、進捗保存に対応しています。",
+          transposeDesc: "歌手や演奏者のための移調ピアノ。調を選ぶだけで、慣れた鍵盤感覚のまま目的のキーで演奏できます。",
+          colorDesc: "色と数字で鍵盤の関係を理解しやすくするビジュアルピアノ。練習や記憶をより直感的にします。",
+          itemmapDesc: "カテゴリ、項目、関係性を整理する軽量ツール。散らばった情報を検索できる個人用ナレッジマップに変えます。",
+          support: "サポート",
+          tagMusicEducation: "音楽教育",
+          tagInstrument: "楽器",
+          tagCreativeTool: "創作ツール",
+          tagMusic: "音楽",
+          tagInDevelopment: "開発中",
+          ideas: "アイデア",
+          projects: "プロジェクト",
+          references: "資料",
+          connections: "つながり",
+          aboutTitle: "邪魔をしない設計。",
+          aboutText: "良いツールは、開いて、理解して、すぐ使えるものだと思っています。アカウント、広告、不要な手順を減らし、本当にやりたいことに集中できる形を目指しています。<br><br>注意を奪わず、安定して動き、最初のタップから自然に使えるアプリを作っています。",
+          focused: "Focused",
+          focusedText: "ひとつの明確な目的に集中し、不要な機能を増やしません。",
+          private: "Private",
+          privateText: "ローカル利用とオフライン利用を優先し、データ収集を最小限にします。",
+          human: "Human",
+          humanText: "静かで分かりやすく、ユーザーのために働くインターフェース。",
+          footer: "© 2026 Ben Huang. 丁寧に制作。"
+        },
+        ko: {
+          title: "App Studio Ben — 앱 포트폴리오",
+          navWork: "작품",
+          navAbout: "소개",
+          eyebrow: "독립 앱 스튜디오",
+          heroTitle: "작은 앱.<br>선명한 아이디어.",
+          heroText: "설명서 없이 바로 사용할 수 있는 단순하고 집중된 디지털 도구를 만듭니다. 음악 학습, 창작, 일상 정리를 더 자연스럽게 돕는 앱입니다.",
+          viewWork: "작품 보기",
+          contact: "문의하기",
+          selectedWork: "대표 작품",
+          workIntro: "음표 읽기 연습부터 조옮김 피아노까지, 각 프로젝트는 하나의 구체적인 문제에서 출발해 가볍게 사용할 수 있도록 설계되었습니다.",
+          musicNoteDesc: "오선보와 인터랙티브 피아노 건반으로 음표 읽기를 연습합니다. 높은음자리표와 낮은음자리표, 다양한 조표, 오프라인 사용, 진행 상황 저장을 지원합니다.",
+          transposeDesc: "가수와 연주자를 위한 조옮김 피아노입니다. 원하는 키를 선택하고 익숙한 손 모양으로 목표 조에서 연주할 수 있습니다.",
+          colorDesc: "색상과 숫자로 건반 관계를 더 쉽게 이해하도록 돕는 비주얼 피아노입니다. 연습과 기억을 더 직관적으로 만듭니다.",
+          itemmapDesc: "카테고리, 항목, 관계를 정리하는 가벼운 도구입니다. 흩어진 정보를 검색 가능한 개인 지식 지도로 바꿉니다.",
+          support: "지원",
+          tagMusicEducation: "음악 교육",
+          tagInstrument: "악기",
+          tagCreativeTool: "창작 도구",
+          tagMusic: "음악",
+          tagInDevelopment: "개발 중",
+          ideas: "아이디어",
+          projects: "프로젝트",
+          references: "자료",
+          connections: "연결",
+          aboutTitle: "방해하지 않도록 설계했습니다.",
+          aboutText: "좋은 도구는 열고, 이해하고, 바로 사용할 수 있어야 한다고 믿습니다. 계정, 광고, 불필요한 단계를 줄여 사용자가 하고 싶은 일에 집중할 수 있게 합니다.<br><br>주의를 존중하고 안정적으로 작동하며 첫 탭부터 자연스러운 앱을 만듭니다.",
+          focused: "Focused",
+          focusedText: "하나의 명확한 핵심 작업에 집중하고 관련 없는 기능을 쌓지 않습니다.",
+          private: "Private",
+          privateText: "로컬 및 오프라인 사용을 우선하며 데이터 수집을 최소화합니다.",
+          human: "Human",
+          humanText: "조용하고 이해하기 쉬운 인터페이스로 기술이 사용자를 돕게 합니다.",
+          footer: "© 2026 Ben Huang. 정성을 담아 제작."
+        },
+        es: {
+          title: "App Studio Ben — Aplicaciones y experimentos",
+          navWork: "Trabajo",
+          navAbout: "Acerca de",
+          eyebrow: "Estudio independiente de apps",
+          heroTitle: "Apps pequeñas.<br>Ideas claras.",
+          heroText: "Creo herramientas digitales simples y enfocadas que no necesitan manual. Cada app gira en torno al aprendizaje musical, la creatividad y la organización diaria.",
+          viewWork: "Ver trabajos",
+          contact: "Contacto",
+          selectedWork: "Trabajos seleccionados",
+          workIntro: "Desde práctica de lectura musical hasta pianos transponibles, cada proyecto nace de un problema concreto y se mantiene ligero a propósito.",
+          musicNoteDesc: "Practica la lectura de notas en el pentagrama con un teclado de piano interactivo. Incluye claves de sol y fa, varias armaduras, uso sin conexión y progreso guardado.",
+          transposeDesc: "Un piano transponible para cantantes y músicos. Elige una tonalidad y toca formas conocidas en la tonalidad objetivo con un rango desplazable.",
+          colorDesc: "Un piano visual que usa colores y números para entender, practicar y recordar mejor las relaciones del teclado.",
+          itemmapDesc: "Una herramienta ligera para organizar categorías, elementos y relaciones, convirtiendo información dispersa en un mapa personal de conocimiento.",
+          support: "Soporte",
+          tagMusicEducation: "Educación musical",
+          tagInstrument: "Instrumento",
+          tagCreativeTool: "Herramienta creativa",
+          tagMusic: "Música",
+          tagInDevelopment: "En desarrollo",
+          ideas: "Ideas",
+          projects: "Proyectos",
+          references: "Referencias",
+          connections: "Conexiones",
+          aboutTitle: "Diseñado para no estorbar.",
+          aboutText: "Una buena herramienta debería ser rápida de usar: abrir, entender y empezar. Mis apps reducen cuentas, anuncios y pasos innecesarios para que la atención se quede en lo que viniste a hacer.<br><br>Construyo apps enfocadas, fiables y naturales desde el primer toque.",
+          focused: "Focused",
+          focusedText: "Creadas alrededor de una tarea central clara, sin añadir funciones irrelevantes.",
+          private: "Private",
+          privateText: "Prioriza el uso local y sin conexión, con la menor recopilación de datos posible.",
+          human: "Human",
+          humanText: "Interfaces tranquilas y comprensibles que ponen la tecnología al servicio del usuario.",
+          footer: "© 2026 Ben Huang. Hecho con cuidado."
+        }
+      };
+
+      function normalizeLanguage(value) {
+        const lower = String(value || "").toLowerCase();
+        if (lower.startsWith("zh")) return "zh";
+        if (lower.startsWith("ja")) return "ja";
+        if (lower.startsWith("ko")) return "ko";
+        if (lower.startsWith("es")) return "es";
+        if (lower.startsWith("en")) return "en";
+        return null;
+      }
+
+      function detectLanguage() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (supported.includes(saved)) return saved;
+        const browserLanguages = navigator.languages && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language];
+        for (const language of browserLanguages) {
+          const normalized = normalizeLanguage(language);
+          if (normalized) return normalized;
+        }
+        return "en";
+      }
+
+      function applyLanguage(language, persist = true) {
+        const active = supported.includes(language) ? language : "en";
+        const dictionary = translations[active] || translations.en;
+        document.documentElement.lang = langAttrs[active] || "en";
+        document.title = dictionary.title;
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+          const key = element.dataset.i18n;
+          if (dictionary[key]) element.textContent = dictionary[key];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach(element => {
+          const key = element.dataset.i18nHtml;
+          if (dictionary[key]) element.innerHTML = dictionary[key];
+        });
+        const select = document.querySelector("#language-select");
+        if (select) select.value = active;
+        if (persist) localStorage.setItem(STORAGE_KEY, active);
+      }
+
+      const select = document.querySelector("#language-select");
+      if (select) {
+        select.addEventListener("change", event => applyLanguage(event.target.value));
+      }
+      applyLanguage(detectLanguage(), false);
+    })();
+  </script>
 </body>
 </html>
