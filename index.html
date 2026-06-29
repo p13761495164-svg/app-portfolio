@@ -106,10 +106,15 @@
     .project-visual.green { background: linear-gradient(145deg, #cdded4, #769985); }
     .project-visual.gold { background: linear-gradient(145deg, #fff8d6, #c69529); }
     .project-visual.mono { background: linear-gradient(145deg, #dedede, #5d5d5d); }
+    .project-visual.sidenote { background: linear-gradient(145deg, #edf7f3, #d6e1ee); }
     .project-visual img {
       position: absolute; width: min(68%, 320px); left: 50%; top: 55%;
       transform: translate(-50%, -50%) rotate(3deg); border: 6px solid #1f1d1a;
       border-radius: 38px; box-shadow: 0 32px 70px rgba(0,0,0,.28);
+    }
+    .project-visual.sidenote img {
+      width: auto; height: 88%; max-width: 78%; top: 50%;
+      object-fit: contain; transform: translate(-50%, -50%) rotate(2deg);
     }
     .project:nth-child(even) .project-visual img { transform: translate(-50%, -50%) rotate(-3deg); }
     .itemmap-gallery {
@@ -269,6 +274,20 @@
               </div>
             </div>
           </article>
+
+          <article class="project">
+            <div class="project-copy">
+              <img class="app-icon" src="assets/sidenote-icon.png" alt="SideNote icon">
+              <h3>SideNote</h3>
+              <p data-i18n="sidenoteDesc">一个为跨语言对话设计的轻量聊天工具。消息可以按目标语言翻译，复制或朗读，适合和不同语言的朋友保持自然沟通。</p>
+              <div class="tags"><span class="tag">Web App</span><span class="tag" data-i18n="tagCommunication">Communication</span><span class="tag" data-i18n="tagTranslation">Translation</span></div>
+              <div class="actions store-links">
+                <a class="button primary" href="https://web-app-a-id-a-a.vercel.app/" target="_blank" rel="noopener">Web App ↗</a>
+                <a class="button ghost" href="mailto:p13761495164@gmail.com" data-i18n="contact">Contact</a>
+              </div>
+            </div>
+            <div class="project-visual sidenote"><img src="assets/sidenote-screen.jpg" alt="SideNote chat screenshot"></div>
+          </article>
         </div>
       </div>
     </section>
@@ -315,12 +334,15 @@
           transposeDesc: "为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。",
           colorDesc: "用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。",
           itemmapDesc: "一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。",
+          sidenoteDesc: "一个为跨语言对话设计的轻量聊天工具。消息可以按目标语言翻译，复制或朗读，适合和不同语言的朋友保持自然沟通。",
           demoVideo: "演示视频",
           support: "支持",
           tagMusicEducation: "音乐教育",
           tagInstrument: "乐器",
           tagCreativeTool: "创作工具",
           tagMusic: "音乐",
+          tagCommunication: "沟通",
+          tagTranslation: "翻译",
           tagInDevelopment: "开发中",
           ideas: "想法",
           projects: "项目",
@@ -351,12 +373,15 @@
           transposeDesc: "A transposable piano for singers and musicians. Choose a key and play familiar shapes in the target key, with a horizontally scrollable range.",
           colorDesc: "A visual piano that uses color and numbers to make keyboard relationships easier to understand, practice, and remember.",
           itemmapDesc: "A lightweight tool for organizing categories, items, and relationships, turning scattered information into a searchable personal knowledge map.",
+          sidenoteDesc: "A lightweight chat tool for cross-language conversations. Messages can be translated into a target language, copied, or read aloud for smoother everyday communication.",
           demoVideo: "Demo Video",
           support: "Support",
           tagMusicEducation: "Music Education",
           tagInstrument: "Instrument",
           tagCreativeTool: "Creative Tool",
           tagMusic: "Music",
+          tagCommunication: "Communication",
+          tagTranslation: "Translation",
           tagInDevelopment: "In Development",
           ideas: "Ideas",
           projects: "Projects",
@@ -387,12 +412,15 @@
           transposeDesc: "歌手や演奏者のための移調ピアノ。調を選ぶだけで、慣れた鍵盤感覚のまま目的のキーで演奏できます。",
           colorDesc: "色と数字で鍵盤の関係を理解しやすくするビジュアルピアノ。練習や記憶をより直感的にします。",
           itemmapDesc: "カテゴリ、項目、関係性を整理する軽量ツール。散らばった情報を検索できる個人用ナレッジマップに変えます。",
+          sidenoteDesc: "言語を越えた会話のための軽量チャットツール。メッセージを目的の言語に翻訳し、コピーや読み上げもできます。",
           demoVideo: "デモ動画",
           support: "サポート",
           tagMusicEducation: "音楽教育",
           tagInstrument: "楽器",
           tagCreativeTool: "創作ツール",
           tagMusic: "音楽",
+          tagCommunication: "コミュニケーション",
+          tagTranslation: "翻訳",
           tagInDevelopment: "開発中",
           ideas: "アイデア",
           projects: "プロジェクト",
@@ -423,12 +451,15 @@
           transposeDesc: "가수와 연주자를 위한 조옮김 피아노입니다. 원하는 키를 선택하고 익숙한 손 모양으로 목표 조에서 연주할 수 있습니다.",
           colorDesc: "색상과 숫자로 건반 관계를 더 쉽게 이해하도록 돕는 비주얼 피아노입니다. 연습과 기억을 더 직관적으로 만듭니다.",
           itemmapDesc: "카테고리, 항목, 관계를 정리하는 가벼운 도구입니다. 흩어진 정보를 검색 가능한 개인 지식 지도로 바꿉니다.",
+          sidenoteDesc: "언어가 다른 사람과 자연스럽게 대화하기 위한 가벼운 채팅 도구입니다. 메시지를 목표 언어로 번역하고 복사하거나 읽어 줄 수 있습니다.",
           demoVideo: "데모 영상",
           support: "지원",
           tagMusicEducation: "음악 교육",
           tagInstrument: "악기",
           tagCreativeTool: "창작 도구",
           tagMusic: "음악",
+          tagCommunication: "커뮤니케이션",
+          tagTranslation: "번역",
           tagInDevelopment: "개발 중",
           ideas: "아이디어",
           projects: "프로젝트",
@@ -459,12 +490,15 @@
           transposeDesc: "Un piano transponible para cantantes y músicos. Elige una tonalidad y toca formas conocidas en la tonalidad objetivo con un rango desplazable.",
           colorDesc: "Un piano visual que usa colores y números para entender, practicar y recordar mejor las relaciones del teclado.",
           itemmapDesc: "Una herramienta ligera para organizar categorías, elementos y relaciones, convirtiendo información dispersa en un mapa personal de conocimiento.",
+          sidenoteDesc: "Una herramienta ligera de chat para conversaciones entre idiomas. Los mensajes se pueden traducir, copiar o leer en voz alta para comunicarse con más naturalidad.",
           demoVideo: "Video demo",
           support: "Soporte",
           tagMusicEducation: "Educación musical",
           tagInstrument: "Instrumento",
           tagCreativeTool: "Herramienta creativa",
           tagMusic: "Música",
+          tagCommunication: "Comunicación",
+          tagTranslation: "Traducción",
           tagInDevelopment: "En desarrollo",
           ideas: "Ideas",
           projects: "Proyectos",
