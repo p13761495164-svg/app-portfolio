@@ -117,13 +117,14 @@
     .project:nth-child(even) { grid-template-columns: 1.1fr .9fr; }
     .project:nth-child(even) .project-copy { order: 2; }
     .project-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(32px, 6vw, 74px); }
-    .app-icon { width: 76px; height: 76px; object-fit: cover; margin-bottom: 28px; border-radius: 19px; box-shadow: 0 12px 28px rgba(0,0,0,.15); }
+    .project-title-row { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
+    .app-icon { flex: 0 0 auto; width: 76px; height: 76px; object-fit: cover; border-radius: 19px; box-shadow: 0 12px 28px rgba(0,0,0,.15); }
     .icon-fallback {
       display: grid; place-items: center; width: 76px; height: 76px; margin-bottom: 28px;
       border-radius: 19px; color: #fff; background: linear-gradient(135deg, #222, #80634f);
       font: 700 34px/1 var(--serif); box-shadow: 0 12px 28px rgba(0,0,0,.15);
     }
-    .project h3 { margin: 0 0 14px; font: 700 clamp(34px, 4vw, 52px)/1 var(--serif); letter-spacing: -.035em; }
+    .project h3 { margin: 0; font: 700 clamp(34px, 4vw, 52px)/1 var(--serif); letter-spacing: -.035em; }
     .project p { margin: 0 0 26px; color: var(--muted); line-height: 1.75; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
     .tag { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; font-weight: 700; }
@@ -186,6 +187,9 @@
       .section-head p { margin-top: 16px; }
       .project { min-height: 0; border-radius: 24px; }
       .project-copy { padding: 32px 24px; }
+      .project-title-row { gap: 14px; margin-bottom: 18px; }
+      .app-icon { width: 58px; height: 58px; border-radius: 15px; }
+      .project h3 { font-size: 34px; }
       .project-visual { min-height: 440px; }
       .itemmap-gallery { min-height: 440px; }
       .itemmap-gallery { gap: 7px; padding: 18px 8px; }
@@ -250,8 +254,10 @@
         <div class="projects">
           <article class="project" id="music-note-quiz">
             <div class="project-copy">
-              <img class="app-icon" src="assets/music-note-icon.png" alt="Music Note Quiz icon">
-              <h3>Music Note Quiz</h3>
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/music-note-icon.png" alt="Music Note Quiz icon">
+                <h3>Music Note Quiz</h3>
+              </div>
               <p data-i18n="musicNoteDesc">通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。</p>
               <div class="tags"><span class="tag">iOS</span><span class="tag" data-i18n="tagMusicEducation">Music Education</span></div>
               <div class="actions store-links">
@@ -265,8 +271,10 @@
 
           <article class="project" id="transpose-piano">
             <div class="project-copy">
-              <img class="app-icon" src="assets/transpose-icon.png" alt="Transpose Piano icon">
-              <h3>Transpose Piano</h3>
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/transpose-icon.png" alt="Transpose Piano icon">
+                <h3>Transpose Piano</h3>
+              </div>
               <p data-i18n="transposeDesc">为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。</p>
               <div class="tags"><span class="tag">iOS</span><span class="tag">Web Audio</span><span class="tag" data-i18n="tagInstrument">Instrument</span></div>
               <div class="actions store-links">
@@ -280,8 +288,10 @@
 
           <article class="project" id="color-piano">
             <div class="project-copy">
-              <img class="app-icon" src="assets/color-icon.png" alt="Color Piano icon">
-              <h3>Color Piano</h3>
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/color-icon.png" alt="Color Piano icon">
+                <h3>Color Piano</h3>
+              </div>
               <p data-i18n="colorDesc">用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。</p>
               <div class="tags"><span class="tag">iOS</span><span class="tag" data-i18n="tagCreativeTool">Creative Tool</span><span class="tag" data-i18n="tagMusic">Music</span></div>
               <div class="actions store-links">
@@ -295,8 +305,10 @@
 
           <article class="project" id="itemmap">
             <div class="project-copy">
-              <img class="app-icon" src="assets/itemmap-icon.png" alt="ItemMap icon">
-              <h3>ItemMap</h3>
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/itemmap-icon.png" alt="ItemMap icon">
+                <h3>ItemMap</h3>
+              </div>
               <p data-i18n="itemmapDesc">一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。</p>
               <div class="tags"><span class="tag">Web App</span><span class="tag">Supabase</span><span class="tag" data-i18n="tagInDevelopment">In Development</span></div>
               <div class="actions store-links">
@@ -316,8 +328,10 @@
 
           <article class="project" id="sidenote">
             <div class="project-copy">
-              <img class="app-icon" src="assets/sidenote-icon.png" alt="SideNote icon">
-              <h3>SideNote</h3>
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/sidenote-icon.png" alt="SideNote icon">
+                <h3>SideNote</h3>
+              </div>
               <p data-i18n="sidenoteDesc">一个为跨语言对话设计的轻量聊天工具。消息可以按目标语言翻译，复制或朗读，适合和不同语言的朋友保持自然沟通。</p>
               <div class="tags"><span class="tag">Web App</span><span class="tag" data-i18n="tagCommunication">Communication</span><span class="tag" data-i18n="tagTranslation">Translation</span></div>
               <div class="actions store-links">
