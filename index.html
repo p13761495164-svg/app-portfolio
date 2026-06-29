@@ -58,6 +58,30 @@
     }
     h1 { margin: 0; max-width: 760px; font: 700 clamp(54px, 8vw, 104px)/.96 var(--serif); letter-spacing: -.065em; }
     .hero p { max-width: 610px; margin: 28px 0 34px; color: var(--muted); font-size: clamp(17px, 2vw, 21px); line-height: 1.7; }
+    .app-jump {
+      max-width: 680px; margin: 0 0 28px; padding: 14px;
+      border: 1px solid var(--line); border-radius: 26px;
+      background: rgba(255,255,255,.42); backdrop-filter: blur(14px);
+    }
+    .app-jump-label {
+      margin: 0 0 11px; color: var(--accent); font-size: 11px;
+      font-weight: 850; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .app-jump-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; }
+    .app-jump-card {
+      display: grid; justify-items: center; gap: 8px; padding: 12px 7px 11px;
+      border: 1px solid transparent; border-radius: 18px; color: var(--muted);
+      font-size: 12px; font-weight: 800; text-align: center; transition: .2s ease;
+    }
+    .app-jump-card:hover {
+      color: var(--ink); border-color: var(--line); background: rgba(255,255,255,.62);
+      transform: translateY(-2px); box-shadow: 0 10px 24px rgba(25,24,22,.09);
+    }
+    .app-jump-card img {
+      width: 46px; height: 46px; border-radius: 12px; object-fit: cover;
+      box-shadow: 0 7px 18px rgba(0,0,0,.13);
+    }
+    .app-jump-card span { overflow-wrap: anywhere; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .button {
       display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
@@ -88,6 +112,7 @@
       position: relative; display: grid; grid-template-columns: .9fr 1.1fr; min-height: 580px;
       overflow: hidden; border: 1px solid var(--line); border-radius: 32px;
       background: var(--card); box-shadow: 0 20px 55px rgba(48,39,31,.09);
+      scroll-margin-top: 92px;
     }
     .project:nth-child(even) { grid-template-columns: 1.1fr .9fr; }
     .project:nth-child(even) .project-copy { order: 2; }
@@ -150,6 +175,9 @@
       .nav-links { gap: 12px; }
       .hero { min-height: auto; padding-bottom: 55px; }
       h1 { font-size: 54px; }
+      .app-jump { padding: 12px; border-radius: 22px; }
+      .app-jump-grid { grid-template-columns: repeat(5, minmax(72px, 1fr)); overflow-x: auto; padding-bottom: 2px; }
+      .app-jump-card { min-width: 72px; }
       .hero-art { min-height: 370px; }
       .phone { width: 175px; border-width: 5px; border-radius: 28px; }
       section { padding: 60px 0; }
@@ -189,6 +217,16 @@
         <div class="eyebrow" data-i18n="eyebrow">Independent App Studio</div>
         <h1 data-i18n-html="heroTitle">Small apps.<br>Clear ideas.</h1>
         <p data-i18n="heroText">我制作简单、专注、无需说明书的数字工具。围绕音乐学习、创作与日常整理，让每一次点击都有意义。</p>
+        <div class="app-jump" aria-label="App shortcuts">
+          <div class="app-jump-label" data-i18n="appJumpLabel">作品入口</div>
+          <div class="app-jump-grid">
+            <a class="app-jump-card" href="#music-note-quiz"><img src="assets/music-note-icon.png" alt=""><span>Music Note Quiz</span></a>
+            <a class="app-jump-card" href="#transpose-piano"><img src="assets/transpose-icon.png" alt=""><span>Transpose Piano</span></a>
+            <a class="app-jump-card" href="#color-piano"><img src="assets/color-icon.png" alt=""><span>Color Piano</span></a>
+            <a class="app-jump-card" href="#itemmap"><img src="assets/itemmap-icon.png" alt=""><span>ItemMap</span></a>
+            <a class="app-jump-card" href="#sidenote"><img src="assets/sidenote-icon.png" alt=""><span>SideNote</span></a>
+          </div>
+        </div>
         <div class="actions">
           <a class="button primary" href="#work" data-i18n="viewWork">查看作品</a>
           <a class="button" href="mailto:p13761495164@gmail.com" data-i18n="contact">联系我</a>
@@ -209,7 +247,7 @@
           <p data-i18n="workIntro">从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。</p>
         </div>
         <div class="projects">
-          <article class="project">
+          <article class="project" id="music-note-quiz">
             <div class="project-copy">
               <img class="app-icon" src="assets/music-note-icon.png" alt="Music Note Quiz icon">
               <h3>Music Note Quiz</h3>
@@ -224,7 +262,7 @@
             <div class="project-visual green"><img src="assets/music-note-screen.png" alt="Music Note Quiz screenshot"></div>
           </article>
 
-          <article class="project">
+          <article class="project" id="transpose-piano">
             <div class="project-copy">
               <img class="app-icon" src="assets/transpose-icon.png" alt="Transpose Piano icon">
               <h3>Transpose Piano</h3>
@@ -239,7 +277,7 @@
             <div class="project-visual mono"><img src="assets/IMG_3332.jpg" alt="Transpose Piano screenshot"></div>
           </article>
 
-          <article class="project">
+          <article class="project" id="color-piano">
             <div class="project-copy">
               <img class="app-icon" src="assets/color-icon.png" alt="Color Piano icon">
               <h3>Color Piano</h3>
@@ -254,7 +292,7 @@
             <div class="project-visual gold"><img src="assets/color-screen.png" alt="Color Piano screenshot"></div>
           </article>
 
-          <article class="project">
+          <article class="project" id="itemmap">
             <div class="project-copy">
               <img class="app-icon" src="assets/itemmap-icon.png" alt="ItemMap icon">
               <h3>ItemMap</h3>
@@ -275,7 +313,7 @@
             </div>
           </article>
 
-          <article class="project">
+          <article class="project" id="sidenote">
             <div class="project-copy">
               <img class="app-icon" src="assets/sidenote-icon.png" alt="SideNote icon">
               <h3>SideNote</h3>
@@ -326,6 +364,7 @@
           eyebrow: "独立应用工作室",
           heroTitle: "小应用。<br>清晰想法。",
           heroText: "我制作简单、专注、无需说明书的数字工具。围绕音乐学习、创作与日常整理，让每一次点击都有意义。",
+          appJumpLabel: "作品入口",
           viewWork: "查看作品",
           contact: "联系我",
           selectedWork: "精选作品",
@@ -365,6 +404,7 @@
           eyebrow: "Independent App Studio",
           heroTitle: "Small apps.<br>Clear ideas.",
           heroText: "I build simple, focused digital tools that need no manual. Each app is shaped around music learning, creativity, and everyday organization.",
+          appJumpLabel: "App shortcuts",
           viewWork: "View work",
           contact: "Contact",
           selectedWork: "Selected work",
@@ -404,6 +444,7 @@
           eyebrow: "インディペンデント App Studio",
           heroTitle: "小さなアプリ。<br>明快なアイデア。",
           heroText: "シンプルで集中しやすく、説明書なしで使えるデジタルツールを作っています。音楽学習、創作、日々の整理を気持ちよく進めるためのアプリです。",
+          appJumpLabel: "アプリ一覧",
           viewWork: "作品を見る",
           contact: "連絡する",
           selectedWork: "主な作品",
@@ -443,6 +484,7 @@
           eyebrow: "독립 앱 스튜디오",
           heroTitle: "작은 앱.<br>선명한 아이디어.",
           heroText: "설명서 없이 바로 사용할 수 있는 단순하고 집중된 디지털 도구를 만듭니다. 음악 학습, 창작, 일상 정리를 더 자연스럽게 돕는 앱입니다.",
+          appJumpLabel: "앱 바로가기",
           viewWork: "작품 보기",
           contact: "문의하기",
           selectedWork: "대표 작품",
@@ -482,6 +524,7 @@
           eyebrow: "Estudio independiente de apps",
           heroTitle: "Apps pequeñas.<br>Ideas claras.",
           heroText: "Creo herramientas digitales simples y enfocadas que no necesitan manual. Cada app gira en torno al aprendizaje musical, la creatividad y la organización diaria.",
+          appJumpLabel: "Accesos a apps",
           viewWork: "Ver trabajos",
           contact: "Contacto",
           selectedWork: "Trabajos seleccionados",
