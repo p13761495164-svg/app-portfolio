@@ -143,6 +143,11 @@
       object-fit: contain; transform: translate(-50%, -50%) rotate(2deg);
     }
     .project:nth-child(even) .project-visual img { transform: translate(-50%, -50%) rotate(-3deg); }
+    .project-visual.wide img,
+    .project:nth-child(even) .project-visual.wide img {
+      width: min(86%, 560px); top: 50%; border-radius: 28px;
+      transform: translate(-50%, -50%) rotate(-2deg);
+    }
     .itemmap-gallery {
       display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center;
       gap: 12px; height: 100%; min-height: 520px; padding: 24px 14px; overflow: hidden;
@@ -226,6 +231,7 @@
           <div class="app-jump-label" data-i18n="appJumpLabel">作品入口</div>
           <div class="app-jump-grid">
             <a class="app-jump-card" href="#music-note-quiz"><img src="assets/music-note-icon.png" alt=""><span>Music Note Quiz</span></a>
+            <a class="app-jump-card" href="#easy-piano"><img src="assets/easy-piano-icon.png" alt=""><span>Easy Piano</span></a>
             <a class="app-jump-card" href="#transpose-piano"><img src="assets/transpose-icon.png" alt=""><span>Transpose Piano</span></a>
             <a class="app-jump-card" href="#color-piano"><img src="assets/color-icon.png" alt=""><span>Color Piano</span></a>
             <a class="app-jump-card" href="#itemmap"><img src="assets/itemmap-icon.png" alt=""><span>ItemMap</span></a>
@@ -267,6 +273,22 @@
               </div>
             </div>
             <div class="project-visual green"><img src="assets/music-note-screen.png" alt="Music Note Quiz screenshot"></div>
+          </article>
+
+          <article class="project" id="easy-piano">
+            <div class="project-copy">
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/easy-piano-icon.png" alt="Easy Piano icon">
+                <h3>Easy Piano</h3>
+              </div>
+              <p data-i18n="easyPianoDesc">一款为 MIDI 键盘和触屏练习设计的简洁钢琴工具。支持网页播放、全屏练习与多语言界面，让练琴入口更轻。</p>
+              <div class="tags"><span class="tag">Web App</span><span class="tag">MIDI</span><span class="tag" data-i18n="tagInstrument">Instrument</span></div>
+              <div class="actions store-links">
+                <a class="button primary" href="https://p13761495164-svg.github.io/piano-midi-staff-live/" target="_blank" rel="noopener">Web App ↗</a>
+                <a class="button ghost" href="mailto:p13761495164@gmail.com" data-i18n="contact">Contact</a>
+              </div>
+            </div>
+            <div class="project-visual mono wide"><img src="assets/easy-piano-screen.png" alt="Easy Piano screenshot"></div>
           </article>
 
           <article class="project" id="transpose-piano">
@@ -385,6 +407,7 @@
           selectedWork: "精选作品",
           workIntro: "从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。",
           musicNoteDesc: "通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。",
+          easyPianoDesc: "一款为 MIDI 键盘和触屏练习设计的简洁钢琴工具。支持网页播放、全屏练习与多语言界面，让练琴入口更轻。",
           transposeDesc: "为歌手与乐手设计的可移调钢琴。选择任意调性后，熟悉的键位即可演奏目标调，横向滑动扩展音域。",
           colorDesc: "用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。",
           itemmapDesc: "一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。",
@@ -425,6 +448,7 @@
           selectedWork: "Selected work",
           workIntro: "From note-reading practice to transposable piano tools, each project starts from one specific problem and stays intentionally lightweight.",
           musicNoteDesc: "Practice reading staff notes with an interactive piano keyboard. Supports treble and bass clefs, multiple key signatures, offline use, and saved progress.",
+          easyPianoDesc: "A clean piano practice tool for MIDI keyboards and touch screens. It supports web playback, fullscreen practice, and a multilingual interface for quick, focused playing.",
           transposeDesc: "A transposable piano for singers and musicians. Choose a key and play familiar shapes in the target key, with a horizontally scrollable range.",
           colorDesc: "A visual piano that uses color and numbers to make keyboard relationships easier to understand, practice, and remember.",
           itemmapDesc: "A lightweight tool for organizing categories, items, and relationships, turning scattered information into a searchable personal knowledge map.",
@@ -465,6 +489,7 @@
           selectedWork: "主な作品",
           workIntro: "読譜練習から移調ピアノまで、それぞれのアプリは具体的な課題から出発し、軽やかに使えることを大切にしています。",
           musicNoteDesc: "五線譜とピアノ鍵盤で読譜を練習できます。高音記号・低音記号、複数の調号、オフライン利用、進捗保存に対応しています。",
+          easyPianoDesc: "MIDIキーボードとタッチ操作のためのシンプルなピアノ練習ツール。Web再生、全画面練習、多言語UIに対応し、すぐに演奏へ入れます。",
           transposeDesc: "歌手や演奏者のための移調ピアノ。調を選ぶだけで、慣れた鍵盤感覚のまま目的のキーで演奏できます。",
           colorDesc: "色と数字で鍵盤の関係を理解しやすくするビジュアルピアノ。練習や記憶をより直感的にします。",
           itemmapDesc: "カテゴリ、項目、関係性を整理する軽量ツール。散らばった情報を検索できる個人用ナレッジマップに変えます。",
@@ -505,6 +530,7 @@
           selectedWork: "대표 작품",
           workIntro: "음표 읽기 연습부터 조옮김 피아노까지, 각 프로젝트는 하나의 구체적인 문제에서 출발해 가볍게 사용할 수 있도록 설계되었습니다.",
           musicNoteDesc: "오선보와 인터랙티브 피아노 건반으로 음표 읽기를 연습합니다. 높은음자리표와 낮은음자리표, 다양한 조표, 오프라인 사용, 진행 상황 저장을 지원합니다.",
+          easyPianoDesc: "MIDI 키보드와 터치 연습을 위한 깔끔한 피아노 도구입니다. 웹 재생, 전체 화면 연습, 다국어 UI를 지원해 바로 연주에 집중할 수 있습니다.",
           transposeDesc: "가수와 연주자를 위한 조옮김 피아노입니다. 원하는 키를 선택하고 익숙한 손 모양으로 목표 조에서 연주할 수 있습니다.",
           colorDesc: "색상과 숫자로 건반 관계를 더 쉽게 이해하도록 돕는 비주얼 피아노입니다. 연습과 기억을 더 직관적으로 만듭니다.",
           itemmapDesc: "카테고리, 항목, 관계를 정리하는 가벼운 도구입니다. 흩어진 정보를 검색 가능한 개인 지식 지도로 바꿉니다.",
@@ -545,6 +571,7 @@
           selectedWork: "Trabajos seleccionados",
           workIntro: "Desde práctica de lectura musical hasta pianos transponibles, cada proyecto nace de un problema concreto y se mantiene ligero a propósito.",
           musicNoteDesc: "Practica la lectura de notas en el pentagrama con un teclado de piano interactivo. Incluye claves de sol y fa, varias armaduras, uso sin conexión y progreso guardado.",
+          easyPianoDesc: "Una herramienta de piano clara para teclados MIDI y práctica táctil. Incluye reproducción web, práctica a pantalla completa e interfaz multilingüe.",
           transposeDesc: "Un piano transponible para cantantes y músicos. Elige una tonalidad y toca formas conocidas en la tonalidad objetivo con un rango desplazable.",
           colorDesc: "Un piano visual que usa colores y números para entender, practicar y recordar mejor las relaciones del teclado.",
           itemmapDesc: "Una herramienta ligera para organizar categorías, elementos y relaciones, convirtiendo información dispersa en un mapa personal de conocimiento.",
