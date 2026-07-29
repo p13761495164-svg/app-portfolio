@@ -49,16 +49,15 @@
       font: 700 13px/1 var(--sans);
     }
     .hero {
-      min-height: calc(100vh - 68px); display: grid; grid-template-columns: 1fr;
-      align-items: center; justify-items: center; gap: 28px; padding: 72px 0 86px;
+      min-height: auto; display: grid; grid-template-columns: 1fr;
+      align-items: center; justify-items: center; gap: 18px; padding: 46px 0 64px;
       text-align: center;
     }
     .eyebrow {
-      margin-bottom: 20px; color: var(--accent); font-size: 12px;
+      margin-bottom: 10px; color: var(--accent); font-size: 11px;
       font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
     }
-    h1 { margin: 0 auto; max-width: 760px; font: 700 clamp(54px, 8vw, 104px)/.96 var(--serif); letter-spacing: -.065em; }
-    .hero p { max-width: 560px; margin: 22px auto 34px; color: var(--muted); font-size: clamp(17px, 2vw, 21px); line-height: 1.7; }
+    .hero p { max-width: 520px; margin: 0 auto 28px; color: var(--muted); font-size: clamp(15px, 1.8vw, 18px); line-height: 1.7; }
     .app-jump {
       width: min(860px, 100%); margin: 0 auto; padding: 0;
       border: 0; border-radius: 0; background: transparent; backdrop-filter: none;
@@ -69,9 +68,9 @@
     }
     .app-jump-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 16px; }
     .app-jump-card {
-      display: grid; justify-items: center; gap: 12px; padding: 18px 10px 16px;
-      border: 1px solid var(--line); border-radius: 24px; color: var(--ink);
-      background: rgba(255,255,255,.45); font-size: 13px; font-weight: 850;
+      display: grid; justify-items: center; gap: 10px; padding: 14px 9px 13px;
+      border: 1px solid var(--line); border-radius: 20px; color: var(--ink);
+      background: rgba(255,255,255,.36); font-size: 12px; font-weight: 820;
       text-align: center; transition: .2s ease;
     }
     .app-jump-card:hover {
@@ -83,8 +82,8 @@
       box-shadow: 0 14px 34px rgba(25,24,22,.11);
     }
     .app-jump-card img {
-      width: 78px; height: 78px; border-radius: 19px; object-fit: cover;
-      box-shadow: 0 12px 28px rgba(0,0,0,.15);
+      width: 66px; height: 66px; border-radius: 16px; object-fit: cover;
+      box-shadow: 0 9px 22px rgba(0,0,0,.13);
     }
     .app-jump-card span { overflow-wrap: anywhere; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -190,11 +189,10 @@
       .nav-links a:not(:last-child) { display: none; }
       .nav-links { gap: 12px; }
       .hero { min-height: auto; padding-bottom: 55px; }
-      h1 { font-size: 54px; }
       .app-jump { padding: 12px; border-radius: 22px; }
       .app-jump-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-      .app-jump-card { min-width: 0; padding: 14px 6px 12px; font-size: 11px; border-radius: 18px; }
-      .app-jump-card img { width: 54px; height: 54px; border-radius: 14px; }
+      .app-jump-card { min-width: 0; padding: 12px 6px 11px; font-size: 11px; border-radius: 18px; }
+      .app-jump-card img { width: 50px; height: 50px; border-radius: 13px; }
       .hero-art { min-height: 370px; }
       .phone { width: 175px; border-width: 5px; border-radius: 28px; }
       section { padding: 60px 0; }
@@ -233,7 +231,6 @@
     <header class="wrap hero">
       <div>
         <div class="eyebrow" data-i18n="eyebrow">Independent App Studio</div>
-        <h1 data-i18n-html="heroTitle">App Studio Ben</h1>
         <p data-i18n="heroText">简单、专注、可直接使用的应用作品。</p>
         <div class="app-jump" aria-label="App shortcuts">
           <div class="app-jump-label" data-i18n="appJumpLabel">Apps</div>
@@ -427,7 +424,6 @@
           navWork: "作品 / Work",
           navAbout: "关于 / About",
           eyebrow: "独立应用工作室",
-          heroTitle: "App Studio Ben",
           heroText: "简单、专注、可直接使用的应用作品。",
           appJumpLabel: "Apps",
           viewWork: "查看作品",
@@ -469,7 +465,6 @@
           navWork: "Work",
           navAbout: "About",
           eyebrow: "Independent App Studio",
-          heroTitle: "App Studio Ben",
           heroText: "Simple, focused apps that are ready to use.",
           appJumpLabel: "Apps",
           viewWork: "View work",
@@ -511,7 +506,6 @@
           navWork: "作品",
           navAbout: "概要",
           eyebrow: "インディペンデント App Studio",
-          heroTitle: "App Studio Ben",
           heroText: "シンプルで集中しやすく、すぐに使えるアプリ。",
           appJumpLabel: "Apps",
           viewWork: "作品を見る",
@@ -553,7 +547,6 @@
           navWork: "작품",
           navAbout: "소개",
           eyebrow: "독립 앱 스튜디오",
-          heroTitle: "App Studio Ben",
           heroText: "단순하고 집중되어 바로 사용할 수 있는 앱입니다.",
           appJumpLabel: "Apps",
           viewWork: "작품 보기",
@@ -595,7 +588,6 @@
           navWork: "Trabajo",
           navAbout: "Acerca de",
           eyebrow: "Estudio independiente de apps",
-          heroTitle: "App Studio Ben",
           heroText: "Apps simples, enfocadas y listas para usar.",
           appJumpLabel: "Apps",
           viewWork: "Ver trabajos",
