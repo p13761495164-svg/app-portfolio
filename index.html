@@ -87,6 +87,16 @@
     }
     .app-jump-card span { overflow-wrap: anywhere; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .web-share {
+      display: flex; align-items: center; gap: 14px; width: fit-content;
+      margin-top: 18px; padding: 12px 14px; border: 1px solid var(--line);
+      border-radius: 20px; background: rgba(255,255,255,.52);
+    }
+    .web-share img { width: 86px; height: 86px; border-radius: 12px; }
+    .web-share span {
+      max-width: 170px; color: var(--muted); font-size: 13px;
+      font-weight: 700; line-height: 1.45;
+    }
     .button {
       display: inline-flex; align-items: center; justify-content: center; min-height: 46px;
       padding: 0 20px; border: 1px solid var(--ink); border-radius: 999px;
@@ -140,6 +150,19 @@
     .project-visual.gold { background: linear-gradient(145deg, #fff8d6, #c69529); }
     .project-visual.mono { background: linear-gradient(145deg, #dedede, #5d5d5d); }
     .project-visual.sidenote { background: linear-gradient(145deg, #edf7f3, #d6e1ee); }
+    .project-visual.qelio {
+      display: grid; place-items: center; background:
+        radial-gradient(circle at 28% 22%, rgba(255,255,255,.82), transparent 12rem),
+        linear-gradient(145deg, #d9f3e9, #198b68);
+    }
+    .qelio-mark {
+      display: grid; place-items: center; width: min(48%, 260px); aspect-ratio: 1;
+      border-radius: 38px; background: #fffaf2; box-shadow: 0 32px 70px rgba(0,0,0,.24);
+    }
+    .qelio-mark img {
+      position: static; width: 78%; border: 0; border-radius: 30px;
+      transform: none; box-shadow: none;
+    }
     .project-visual img {
       position: absolute; width: min(68%, 320px); left: 50%; top: 55%;
       transform: translate(-50%, -50%) rotate(3deg); border: 6px solid #1f1d1a;
@@ -204,6 +227,8 @@
       .app-icon { width: 58px; height: 58px; border-radius: 15px; }
       .project h3 { font-size: 34px; }
       .project-visual { min-height: 440px; }
+      .web-share { width: 100%; }
+      .web-share span { max-width: none; }
       .itemmap-gallery { min-height: 440px; }
       .itemmap-gallery { gap: 7px; padding: 18px 8px; }
       .project:nth-child(even) .itemmap-gallery img { border-width: 3px; border-radius: 18px; }
@@ -235,6 +260,7 @@
         <div class="app-jump" aria-label="App shortcuts">
           <div class="app-jump-label" data-i18n="appJumpLabel">Apps</div>
           <div class="app-jump-grid">
+            <a class="app-jump-card" href="#qelio"><img src="assets/qelio-icon.png" alt=""><span>Qelio</span></a>
             <a class="app-jump-card" href="#music-note-quiz"><img src="assets/music-note-icon.png" alt=""><span>Music Note Quiz</span></a>
             <a class="app-jump-card" href="#easy-piano"><img src="assets/easy-piano-icon.png" alt=""><span>Easy Piano</span></a>
             <a class="app-jump-card" href="#midi-hub"><img src="assets/midi-hub-icon.png" alt=""><span>MIDI Hub</span></a>
@@ -264,6 +290,26 @@
           <p data-i18n="workIntro">从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。</p>
         </div>
         <div class="projects">
+          <article class="project" id="qelio">
+            <div class="project-copy">
+              <div class="project-title-row">
+                <img class="app-icon" src="assets/qelio-icon.png" alt="Qelio icon">
+                <h3>Qelio</h3>
+              </div>
+              <p data-i18n="qelioDesc">一个给店铺使用的扫码排队系统。顾客扫码取号，商家管理多个队列、叫号与等待状态，让现场服务更清楚。</p>
+              <div class="tags"><span class="tag">Web App</span><span class="tag" data-i18n="tagQueue">Queue</span><span class="tag" data-i18n="tagBusiness">Business</span></div>
+              <div class="actions store-links">
+                <a class="button primary" href="https://q.appstudioben.com/" target="_blank" rel="noopener">Web App ↗</a>
+                <a class="button ghost" href="mailto:p13761495164@gmail.com" data-i18n="contact">Contact</a>
+              </div>
+              <a class="web-share" href="https://q.appstudioben.com/" target="_blank" rel="noopener" aria-label="Open Qelio Web App QR code">
+                <img src="assets/qelio-web-qr.png" alt="QR code for Qelio Web App">
+                <span data-i18n="scanToOpen">扫码打开 Web App</span>
+              </a>
+            </div>
+            <div class="project-visual qelio"><div class="qelio-mark"><img src="assets/qelio-icon.png" alt=""></div></div>
+          </article>
+
           <article class="project" id="music-note-quiz">
             <div class="project-copy">
               <div class="project-title-row">
@@ -310,6 +356,10 @@
                 <a class="button" href="https://apps.apple.com/jp/app/midi-hub/id6794509345" target="_blank" rel="noopener">iOS App</a>
                 <a class="button" href="https://easy-piano-hub.vercel.app/downloads/midi-hub-android.apk" target="_blank" rel="noopener">APK Download</a>
               </div>
+              <a class="web-share" href="https://easy-piano-hub.vercel.app/" target="_blank" rel="noopener" aria-label="Open MIDI Hub Web App QR code">
+                <img src="assets/midi-hub-web-qr.png" alt="QR code for MIDI Hub Web App">
+                <span data-i18n="scanToOpen">扫码打开 Web App</span>
+              </a>
             </div>
             <div class="project-visual gold"><img src="assets/midi-hub-screen-main.png" alt="MIDI Hub screenshot"></div>
           </article>
@@ -361,6 +411,10 @@
                 <a class="button" href="https://youtube.com/shorts/2Gkg6iKXPpI?si=nno9Sqr1C34219dP" target="_blank" rel="noopener" data-i18n="demoVideo">演示视频</a>
                 <a class="button ghost" href="mailto:p13761495164@gmail.com" data-i18n="contact">Contact</a>
               </div>
+              <a class="web-share" href="https://app-category-item-login-login-1.vercel.app/" target="_blank" rel="noopener" aria-label="Open ItemMap Web App QR code">
+                <img src="assets/itemmap-web-qr.png" alt="QR code for ItemMap Web App">
+                <span data-i18n="scanToOpen">扫码打开 Web App</span>
+              </a>
             </div>
             <div class="project-visual green">
               <div class="itemmap-gallery">
@@ -385,6 +439,10 @@
                 <a class="button" href="https://sidenote.appstudioben.com/downloads/sidenote-android.apk" target="_blank" rel="noopener">APK Download</a>
                 <a class="button ghost" href="mailto:p13761495164@gmail.com" data-i18n="contact">Contact</a>
               </div>
+              <a class="web-share" href="https://web-app-a-id-a-a.vercel.app/" target="_blank" rel="noopener" aria-label="Open SideNote Web App QR code">
+                <img src="assets/sidenote-web-qr.png" alt="QR code for SideNote Web App">
+                <span data-i18n="scanToOpen">扫码打开 Web App</span>
+              </a>
             </div>
             <div class="project-visual sidenote"><img src="assets/sidenote-screen.jpg" alt="SideNote chat screenshot"></div>
           </article>
@@ -430,6 +488,7 @@
           contact: "联系我",
           selectedWork: "精选作品",
           workIntro: "从识谱训练到可移调钢琴，每个作品都从一个具体的问题出发，并尽量保持轻巧。",
+          qelioDesc: "一个给店铺使用的扫码排队系统。顾客扫码取号，商家管理多个队列、叫号与等待状态，让现场服务更清楚。",
           musicNoteDesc: "通过五线谱与互动钢琴键盘练习识谱。支持高低音谱号、多种调号、离线使用，并自动保存练习进度。",
           easyPianoDesc: "一款为 MIDI 键盘和触屏练习设计的简洁钢琴工具。支持网页播放、全屏练习与多语言界面，让练琴入口更轻。",
           midiHubDesc: "一个用于发现、收藏与练习 MIDI 乐谱的音乐工具。支持网页浏览、App 练习、MIDI 连接与 APK 安装。",
@@ -437,8 +496,11 @@
           colorDesc: "用颜色与数字重新理解键盘关系。清晰的视觉反馈让练习更直觉，也为传统钢琴界面增添新的表达方式。",
           itemmapDesc: "一个用于整理类别、物品与关系的轻量管理工具。把零散信息变成可搜索、可连接的个人知识地图。",
           sidenoteDesc: "一个为跨语言对话设计的轻量聊天工具。消息可以按目标语言翻译，复制或朗读，适合和不同语言的朋友保持自然沟通。",
+          scanToOpen: "扫码打开 Web App",
           demoVideo: "演示视频",
           support: "支持",
+          tagQueue: "排队",
+          tagBusiness: "商家工具",
           tagMusicEducation: "音乐教育",
           tagInstrument: "乐器",
           tagCreativeTool: "创作工具",
@@ -471,6 +533,7 @@
           contact: "Contact",
           selectedWork: "Selected work",
           workIntro: "From note-reading practice to transposable piano tools, each project starts from one specific problem and stays intentionally lightweight.",
+          qelioDesc: "A QR-based queue system for shops. Customers scan to take a number, while businesses manage queues, calls, and waiting status with less friction.",
           musicNoteDesc: "Practice reading staff notes with an interactive piano keyboard. Supports treble and bass clefs, multiple key signatures, offline use, and saved progress.",
           easyPianoDesc: "A clean piano practice tool for MIDI keyboards and touch screens. It supports web playback, fullscreen practice, and a multilingual interface for quick, focused playing.",
           midiHubDesc: "A music hub for discovering, saving, and practicing MIDI scores. Browse on the web, practice in the app, connect MIDI, and install the Android APK.",
@@ -478,8 +541,11 @@
           colorDesc: "A visual piano that uses color and numbers to make keyboard relationships easier to understand, practice, and remember.",
           itemmapDesc: "A lightweight tool for organizing categories, items, and relationships, turning scattered information into a searchable personal knowledge map.",
           sidenoteDesc: "A lightweight chat tool for cross-language conversations. Messages can be translated into a target language, copied, or read aloud for smoother everyday communication.",
+          scanToOpen: "Scan to open the Web App",
           demoVideo: "Demo Video",
           support: "Support",
+          tagQueue: "Queue",
+          tagBusiness: "Business",
           tagMusicEducation: "Music Education",
           tagInstrument: "Instrument",
           tagCreativeTool: "Creative Tool",
@@ -512,6 +578,7 @@
           contact: "連絡する",
           selectedWork: "主な作品",
           workIntro: "読譜練習から移調ピアノまで、それぞれのアプリは具体的な課題から出発し、軽やかに使えることを大切にしています。",
+          qelioDesc: "店舗向けのQR順番待ちシステムです。お客様はQRコードで受付し、店舗側は複数の列、呼び出し、待ち状況を管理できます。",
           musicNoteDesc: "五線譜とピアノ鍵盤で読譜を練習できます。高音記号・低音記号、複数の調号、オフライン利用、進捗保存に対応しています。",
           easyPianoDesc: "MIDIキーボードとタッチ操作のためのシンプルなピアノ練習ツール。Web再生、全画面練習、多言語UIに対応し、すぐに演奏へ入れます。",
           midiHubDesc: "MIDI楽譜を見つけ、保存し、練習するための音楽ハブ。Webで閲覧し、アプリで練習、MIDI接続やAPKインストールにも対応します。",
@@ -519,8 +586,11 @@
           colorDesc: "色と数字で鍵盤の関係を理解しやすくするビジュアルピアノ。練習や記憶をより直感的にします。",
           itemmapDesc: "カテゴリ、項目、関係性を整理する軽量ツール。散らばった情報を検索できる個人用ナレッジマップに変えます。",
           sidenoteDesc: "言語を越えた会話のための軽量チャットツール。メッセージを目的の言語に翻訳し、コピーや読み上げもできます。",
+          scanToOpen: "QRコードでWeb Appを開く",
           demoVideo: "デモ動画",
           support: "サポート",
+          tagQueue: "順番待ち",
+          tagBusiness: "店舗ツール",
           tagMusicEducation: "音楽教育",
           tagInstrument: "楽器",
           tagCreativeTool: "創作ツール",
@@ -553,6 +623,7 @@
           contact: "문의하기",
           selectedWork: "대표 작품",
           workIntro: "음표 읽기 연습부터 조옮김 피아노까지, 각 프로젝트는 하나의 구체적인 문제에서 출발해 가볍게 사용할 수 있도록 설계되었습니다.",
+          qelioDesc: "매장을 위한 QR 대기열 시스템입니다. 고객은 QR로 번호를 받고, 매장은 여러 대기열과 호출 상태를 쉽게 관리할 수 있습니다.",
           musicNoteDesc: "오선보와 인터랙티브 피아노 건반으로 음표 읽기를 연습합니다. 높은음자리표와 낮은음자리표, 다양한 조표, 오프라인 사용, 진행 상황 저장을 지원합니다.",
           easyPianoDesc: "MIDI 키보드와 터치 연습을 위한 깔끔한 피아노 도구입니다. 웹 재생, 전체 화면 연습, 다국어 UI를 지원해 바로 연주에 집중할 수 있습니다.",
           midiHubDesc: "MIDI 악보를 찾고 저장하며 연습할 수 있는 음악 허브입니다. 웹 탐색, 앱 연습, MIDI 연결, Android APK 설치를 지원합니다.",
@@ -560,8 +631,11 @@
           colorDesc: "색상과 숫자로 건반 관계를 더 쉽게 이해하도록 돕는 비주얼 피아노입니다. 연습과 기억을 더 직관적으로 만듭니다.",
           itemmapDesc: "카테고리, 항목, 관계를 정리하는 가벼운 도구입니다. 흩어진 정보를 검색 가능한 개인 지식 지도로 바꿉니다.",
           sidenoteDesc: "언어가 다른 사람과 자연스럽게 대화하기 위한 가벼운 채팅 도구입니다. 메시지를 목표 언어로 번역하고 복사하거나 읽어 줄 수 있습니다.",
+          scanToOpen: "QR로 Web App 열기",
           demoVideo: "데모 영상",
           support: "지원",
+          tagQueue: "대기열",
+          tagBusiness: "비즈니스",
           tagMusicEducation: "음악 교육",
           tagInstrument: "악기",
           tagCreativeTool: "창작 도구",
@@ -594,6 +668,7 @@
           contact: "Contacto",
           selectedWork: "Trabajos seleccionados",
           workIntro: "Desde práctica de lectura musical hasta pianos transponibles, cada proyecto nace de un problema concreto y se mantiene ligero a propósito.",
+          qelioDesc: "Un sistema de turnos por QR para tiendas. Los clientes escanean para tomar número y el negocio gestiona colas, llamadas y estados de espera.",
           musicNoteDesc: "Practica la lectura de notas en el pentagrama con un teclado de piano interactivo. Incluye claves de sol y fa, varias armaduras, uso sin conexión y progreso guardado.",
           easyPianoDesc: "Una herramienta de piano clara para teclados MIDI y práctica táctil. Incluye reproducción web, práctica a pantalla completa e interfaz multilingüe.",
           midiHubDesc: "Un centro musical para descubrir, guardar y practicar partituras MIDI. Permite navegar en la web, practicar en la app, conectar MIDI e instalar el APK de Android.",
@@ -601,8 +676,11 @@
           colorDesc: "Un piano visual que usa colores y números para entender, practicar y recordar mejor las relaciones del teclado.",
           itemmapDesc: "Una herramienta ligera para organizar categorías, elementos y relaciones, convirtiendo información dispersa en un mapa personal de conocimiento.",
           sidenoteDesc: "Una herramienta ligera de chat para conversaciones entre idiomas. Los mensajes se pueden traducir, copiar o leer en voz alta para comunicarse con más naturalidad.",
+          scanToOpen: "Escanea para abrir la Web App",
           demoVideo: "Video demo",
           support: "Soporte",
+          tagQueue: "Turnos",
+          tagBusiness: "Negocio",
           tagMusicEducation: "Educación musical",
           tagInstrument: "Instrumento",
           tagCreativeTool: "Herramienta creativa",
